@@ -1,29 +1,38 @@
 #include<iostream>
 using namespace std;
 
-int main()
-{
-    // int a=5;
-    // int* p =&a;
+class Shop{
+    int itemId[10];
+    int itemPrice[10];
+    int counter;
+    public:
+        void setItem();
+        void setCounter(){
+            counter = 0;
+        }
+        void display();
+};
+void Shop :: setItem(){
+    cout<<"Enter id of "<<counter+1<<" item"<<endl;
+    cin>>itemId[counter];
+    cout<<"Enter price of item no "<<counter+1<<" item"<<endl;
+    cin>>itemPrice[counter];
+    counter++;
+}
 
-    // cout<<"The value of a is: "<<a<<endl;
-    // cout<<"The address of a is: "<<p<<endl;
-    // cout<<"The address of a is: "<<&a<<endl;
-    // cout<<"The address of p is: "<<&p<<endl;
-    // cout<<"The value of a is: "<<*p<<endl;
+void Shop :: display(){
+    for (int i = 0; i < counter; i++)
+    {
+        cout<<"The id of "<<i+1<<" item is "<<itemId[i]<<" and Price is "<<itemPrice[i]<<endl;
+    }
     
-    // int** c = &p;
-    // cout<<"The address of p is: "<<&p<<endl;
-    // cout<<"The address of p is: "<<c<<endl;
-    // cout<<"The address of c is: "<<&c<<endl;
-    // cout<<"The adress of a is: "<<*c<<endl;
-    // cout<<"The value of a is: "<<**c<<endl;
-
-    int marks[] = {23,25,27,29};
-    int* p = marks;
-    cout<<"The address of marks[0] is: "<<p<<endl;
-    cout<<"The value at marks[0] is: "<<*p<<endl;
-    cout<<"The address of marks[1] is: "<<p+1<<endl;
-    cout<<"The value at marks[1] is: "<<*(p+1)<<endl;
+};
+int main()
+{   
+   Shop s;
+   s.setCounter();
+   s.setItem();
+   s.setItem();
+   s.display();
     return 0;
 }
