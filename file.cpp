@@ -2,7 +2,11 @@
 #include<fstream>
 using namespace std;
 
-/*
+/*There are 3 main classes for file I/O
+-> fstream
+-> ifstream     ---> Derived from 1
+-> fstream      ---> Derived from 1
+
 In order to work with file in C++, we have to Open file.
 There are two ways we can use to open a file:
 1. By using constructor.
@@ -16,11 +20,13 @@ int main(){
     // ofstream out("file.txt");
     // out<<st;
     
-    //opening file using constructor abd reading it
+    //opening file using constructor and reading it
     string st2;
-    ifstream in("file.txt");
-    // in>>st2;
-    getline(in,st2);
+    ifstream in("file.txt");       //object to ifstream class
+    in>>st2;      //Read only single word
+    // getline(in,st2);   //To read complete line
+    cout<<st2<<endl;
+    in.close();        // To close the file
     cout<<st2<<endl;
     return 0;
 }
