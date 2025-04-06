@@ -23,10 +23,19 @@ int ClimbStairMem(vector<int> &dp, int n){
     return dp[n];
 }
 
+int ClimbStairTab(vector<int> &dp, int n){
+    dp[0] = 1;
+    dp[1] = 1;
+    for(int i = 2;i<n+1;i++){
+        dp[i] = dp[i-1]+dp[i-2];
+    }
+    return dp[n];
+}
+
 int main(){
-    int n=4;
+    int n=5;
     vector<int> dp(n+1,-1);
-    cout<<ClimbStairMem(dp,n)<<endl;
+    cout<<ClimbStairTab(dp,n)<<endl;
 
     return 0;
 }
