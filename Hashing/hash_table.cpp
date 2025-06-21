@@ -60,6 +60,23 @@ public :
                 temp=temp->next;
             }
     }
+    void remove(string key){
+        int i = hashFunct(key);
+        Node* temp=table[i];
+        Node* prev=temp;
+        while(temp!=NULL){
+            if(temp->key==key){
+                if(table[i]->key==key){
+                    table[i]=temp->next;
+                }else{
+                    prev->next=temp->next;
+                }
+                break;
+            }
+            prev=temp;
+            temp=temp->next;
+        }
+    }
     
 };
 
@@ -70,7 +87,9 @@ int main(){
     ht.insert("Usa",50);
     ht.insert("Japan",10);
     ht.insert("Korea",20);
-    // ht.display();
-    ht.search("India");
+    ht.display();
+    // ht.search("India");
+    ht.remove("Japan");
+    ht.display();
     return 0;
 }
