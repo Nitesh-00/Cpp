@@ -50,6 +50,16 @@ public :
             cout<<"NULL"<<endl;
         }
     }
+    void search(string key){
+            int i = hashFunct(key);
+            Node* temp=table[i];
+            while(temp!=NULL){
+                if(temp->key==key){
+                    cout<<"("<<temp->key<<","<<temp->value<<")"<<" ";
+                }
+                temp=temp->next;
+            }
+    }
     
 };
 
@@ -60,6 +70,7 @@ int main(){
     ht.insert("Usa",50);
     ht.insert("Japan",10);
     ht.insert("Korea",20);
-    ht.display();
+    // ht.display();
+    ht.search("India");
     return 0;
 }
