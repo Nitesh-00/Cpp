@@ -1,7 +1,23 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<queue>
 using namespace std;
+
+class Student{
+    
+public:
+    string name;
+    int marks;
+    Student(string name, int marks){
+        this->name=name;
+        this->marks=marks;
+    }
+
+    bool operator < (const Student&obj) const{
+        return this->marks>obj.marks;
+    }
+};
 
 class Heap{
     vector<int> heap;
@@ -46,24 +62,32 @@ public:
 };
 
 int main(){
-    Heap h;
-    h.push(9);
-    h.push(4);
-    h.push(8);
-    h.push(1);
-    h.push(2);
-    h.push(5);
-    cout<<h.top()<<endl;
-    h.pop();
-    cout<<h.top()<<endl;
-    h.pop();
-    cout<<h.top()<<endl;
-    h.pop();
-    cout<<h.top()<<endl;
-    h.pop();
-    cout<<h.top()<<endl;
-    h.pop();
-    cout<<h.top()<<endl;
+    // Heap h;
+    // h.push(9);
+    // h.push(4);
+    // h.push(8);
+    // h.push(1);
+    // h.push(2);
+    // h.push(5);
+    // cout<<h.top()<<endl;
+    // h.pop();
+    // cout<<h.top()<<endl;
+    // h.pop();
+    // cout<<h.top()<<endl;
+    // h.pop();
+    // cout<<h.top()<<endl;
+    // h.pop();
+    // cout<<h.top()<<endl;
+    // h.pop();
+    // cout<<h.top()<<endl;
 
+    priority_queue<Student> pq;
+    pq.push(Student("aman",91));
+    pq.push(Student("nitesh",99));
+    pq.push(Student("rahul",85));
+    while(!pq.empty()){
+        cout<<"top :"<<pq.top().name<<", "<<pq.top().marks<<endl;
+        pq.pop();
+    }
     return 0;
 }
